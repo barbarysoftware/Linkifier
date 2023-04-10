@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.barbarysoftware</groupId>
-    <artifactId>linkify</artifactId>
+    <artifactId>linkify-java</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
