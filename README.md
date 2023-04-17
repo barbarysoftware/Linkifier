@@ -11,6 +11,8 @@ Inspired by linkifyjs.
 
 linkify-java has not yet reached version 1. The basic API is likely to be modified somewhat before we settle on version 1.
 
+linkify-java is maintained by the dev team at [Feature Upvote](https://featureupvote.com/).
+
 ## Example
 
 ```
