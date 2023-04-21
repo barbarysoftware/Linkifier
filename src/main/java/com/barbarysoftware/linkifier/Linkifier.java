@@ -65,9 +65,9 @@ public class Linkifier {
 
         int nextStart = 0;
         for (Link link : links) {
-            sb.append(input, nextStart, link.start);
+            sb.append(input, nextStart, link.start());
             sb.append(toLinkTag(link));
-            nextStart = link.end;
+            nextStart = link.end();
         }
 
         sb.append(input, nextStart, input.length());
@@ -77,9 +77,9 @@ public class Linkifier {
 
     private String toLinkTag(Link link) {
         if (openLinksInNewWindow) {
-            return "<a href='" + link.href + "'>" + link.value + "</a>";
+            return "<a href='" + link.href() + "'>" + link.value() + "</a>";
         } else {
-            return "<a href='" + link.href + "' target='_blank'>" + link.value + "</a>";
+            return "<a href='" + link.href() + "' target='_blank'>" + link.value() + "</a>";
         }
     }
 
@@ -100,8 +100,8 @@ public class Linkifier {
     }
 
     private String toHref(String matchedString) {
-        if (startsWithIgnoreCase(matchedString, "http://")
-            || startsWithIgnoreCase(matchedString, "https://")) {
+        if (Util.startsWithIgnoreCase(matchedString, "http://")
+            || Util.startsWithIgnoreCase(matchedString, "https://")) {
             return matchedString;
         }
         if (useHttps) {
@@ -127,14 +127,6 @@ public class Linkifier {
                         "cf", "td", "cl", "cn", "cx", "cc", "co", "km", "cd", "cg", "ck", "cr", "ci", "hr", "cu", "ae", "uk", "us", "vi", "uy", "uz", "vu", "va", "ve", "vn", "wf", "eh", "ma", "ye", "zm", "zw")
                 .map(tld -> "\\b" + tld + "\\b")
                 .collect(Collectors.joining("|"));
-    }
-
-    private record Link(String value, String href, int start, int end) {
-    }
-
-    private static boolean startsWithIgnoreCase(final String str, final String prefix) {
-        return prefix.length() <= str.length() && str.regionMatches(true, 0, prefix, 0, prefix.length());
-
     }
 
 
