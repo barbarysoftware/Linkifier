@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+/deploy.sh
+/gpg_private_key.pem
