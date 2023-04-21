@@ -45,7 +45,8 @@ public class Linkifier {
     public Linkifier() {
     }
 
-    private String process(String input) {
+    public String linkify(String input) {
+        Objects.requireNonNull(input);
         var links = findUrls(input);
         return convertLinks(input, links);
     }
@@ -91,17 +92,6 @@ public class Linkifier {
             return matchedString;
         }
         return "http://" + matchedString;
-    }
-
-    /**
-     * Linkifies a String
-     *
-     * @param input the String to linkify
-     * @return a linkified String
-     */
-    public static String linkify(String input) {
-        Objects.requireNonNull(input);
-        return new Linkifier().process(input);
     }
 
     /**
