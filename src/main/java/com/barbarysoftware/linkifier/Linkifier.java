@@ -42,7 +42,16 @@ public class Linkifier {
     // as we become aware of them
     private final static Pattern REGEX_URL_PATTERN = Pattern.compile("(https?://)?([a-z0-9-@]+\\.)+(" + getTLDs() + ")([-a-zA-Z0-9@:%._+~#?&/=;()!$*])*", Pattern.CASE_INSENSITIVE);
 
+    private final boolean useHttps;
+    private final boolean openLinksInNewWindow;
+
     public Linkifier() {
+        this(false, false);
+    }
+
+    public Linkifier(boolean useHttps, boolean openLinksInNewWindow) {
+        this.useHttps = useHttps;
+        this.openLinksInNewWindow = openLinksInNewWindow;
     }
 
     public String linkify(String input) {
@@ -66,8 +75,12 @@ public class Linkifier {
         return sb.toString();
     }
 
-    private static String toLinkTag(Link link) {
-        return "<a href='" + link.href + "' target='_blank'>" + link.value + "</a>";
+    private String toLinkTag(Link link) {
+        if (openLinksInNewWindow) {
+            return "<a href='" + link.href + "'>" + link.value + "</a>";
+        } else {
+            return "<a href='" + link.href + "' target='_blank'>" + link.value + "</a>";
+        }
     }
 
     private List<Link> findUrls(String input) {
@@ -86,12 +99,17 @@ public class Linkifier {
         return result;
     }
 
-    private static String toHref(String matchedString) {
+    private String toHref(String matchedString) {
         if (startsWithIgnoreCase(matchedString, "http://")
             || startsWithIgnoreCase(matchedString, "https://")) {
             return matchedString;
         }
-        return "http://" + matchedString;
+        if (useHttps) {
+            return "https://" + matchedString;
+
+        } else {
+            return "http://" + matchedString;
+        }
     }
 
     /**

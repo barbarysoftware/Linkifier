@@ -65,6 +65,20 @@ public class LinkifierTest {
     }
 
     @Test
+    public void testWithHttps() {
+        assertEquals(
+                "<a href='https://example.com' target='_blank'>example.com</a>",
+                new Linkifier(true, false).linkify("example.com"));
+    }
+
+    @Test
+    public void testWithLinksInSameWindow() {
+        assertEquals(
+                "<a href='https://example.com'>example.com</a>",
+                new Linkifier(true, true).linkify("example.com"));
+    }
+
+    @Test
     public void testWithSubdomainTldNet() {
         assertEquals(
                 "Hello world at <a href='http://www.example.net' target='_blank'>http://www.example.net</a>",
