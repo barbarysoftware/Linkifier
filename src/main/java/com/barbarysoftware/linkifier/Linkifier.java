@@ -42,18 +42,15 @@ public class Linkifier {
     // as we become aware of them
     private final static Pattern REGEX_URL_PATTERN = Pattern.compile("(https?://)?([a-z0-9-@]+\\.)+(" + getTLDs() + ")([-a-zA-Z0-9@:%._+~#?&/=;()!$*])*", Pattern.CASE_INSENSITIVE);
 
-    private final String input;
-
-    private Linkifier(String input) {
-        this.input = input;
+    public Linkifier() {
     }
 
-    private String process() {
+    private String process(String input) {
         var links = findUrls(input);
-        return convertLinks(links);
+        return convertLinks(input, links);
     }
 
-    private String convertLinks(List<Link> links) {
+    private String convertLinks(String input, List<Link> links) {
         final StringBuilder sb = new StringBuilder();
 
         int nextStart = 0;
@@ -104,7 +101,7 @@ public class Linkifier {
      */
     public static String linkify(String input) {
         Objects.requireNonNull(input);
-        return new Linkifier(input).process();
+        return new Linkifier().process(input);
     }
 
     /**
