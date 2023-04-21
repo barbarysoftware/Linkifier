@@ -6,10 +6,10 @@
 
     <groupId>com.barbarysoftware</groupId>
     <artifactId>linkify-java</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <packaging>jar</packaging>
 
-    <name>linkify-java</name>
+    <name>Linkifier</name>
     <description>A Java library to detect URLs in plain-text strings and convert them to HTML anchor tags.</description>
     <url>https://github.com/barbarysoftware/linkify-java</url>
 
@@ -30,9 +30,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/barbarysoftware/linkify-java.git</connection>
-        <developerConnection>scm:git:https://github.com/barbarysoftware/linkify-java.git</developerConnection>
-        <url>https://github.com/barbarysoftware/linkify-java</url>
+        <connection>scm:git:https://github.com/barbarysoftware/Linkifier.git</connection>
+        <developerConnection>scm:git:https://github.com/barbarysoftware/Linkifier.git</developerConnection>
+        <url>https://github.com/barbarysoftware/Linkifier.git</url>
     </scm>
 
     <distributionManagement>
