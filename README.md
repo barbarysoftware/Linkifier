@@ -1,4 +1,4 @@
-# linkify-java
+# Linkifier
 
 A Java library to detect URLs in plain-text strings and convert them to HTML <a> anchor tags.
 
@@ -9,9 +9,9 @@ Inspired by linkifyjs.
 * 100% test coverage
 * Simple to use: Input is a Java String, output is a Java String.
 
-linkify-java has not yet reached version 1. The basic API is likely to change somewhat before we settle on version 1.
+Linkifier has not yet reached version 1. The basic API is likely to change somewhat before we settle on version 1.
 
-linkify-java is maintained by the dev team at [Feature Upvote](https://featureupvote.com/).
+Linkifier is maintained by the dev team at [Feature Upvote](https://featureupvote.com/).
 
 ## Example
 
