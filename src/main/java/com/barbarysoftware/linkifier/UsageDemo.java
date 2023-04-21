@@ -1,7 +1,13 @@
 package com.barbarysoftware.linkifier;
 
+/**
+ * A simple example of how to use Linkifier that you can copy and paste to get started.
+ */
 public class UsageDemo {
 
+    /**
+     * Shows the most basic use of Linkifier
+     */
     public static void main(String[] args) {
         String input = "Many websites use example.com in their docs";
         var linkified = Linkifier.linkify(input);

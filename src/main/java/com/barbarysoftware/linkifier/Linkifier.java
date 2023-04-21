@@ -96,6 +96,12 @@ public class Linkifier {
         return "http://" + matchedString;
     }
 
+    /**
+     * Linkifies a String
+     *
+     * @param input the String to linkify
+     * @return a linkified String
+     */
     public static String linkify(String input) {
         Objects.requireNonNull(input);
         return new Linkifier(input).process();
@@ -121,7 +127,7 @@ public class Linkifier {
     private record Link(String value, String href, int start, int end) {
     }
 
-    public static boolean startsWithIgnoreCase(final String str, final String prefix) {
+    private static boolean startsWithIgnoreCase(final String str, final String prefix) {
         return prefix.length() <= str.length() && str.regionMatches(true, 0, prefix, 0, prefix.length());
 
     }
