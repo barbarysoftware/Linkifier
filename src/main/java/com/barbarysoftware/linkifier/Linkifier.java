@@ -1,4 +1,4 @@
-package com.barbarysoftware.linkify;
+package com.barbarysoftware.linkifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  * This is not intended to be a full, generic solution. It exists only for improving suggestion descriptions and
  * comments in Feature Upvote
  */
-public class Linkify {
+public class Linkifier {
 
     // Regexp that matches things that look like links in a String. It matches the following examples:
     //
@@ -44,7 +44,7 @@ public class Linkify {
 
     private final String input;
 
-    private Linkify(String input) {
+    private Linkifier(String input) {
         this.input = input;
     }
 
@@ -98,7 +98,7 @@ public class Linkify {
 
     public static String linkify(String input) {
         Objects.requireNonNull(input);
-        return new Linkify(input).process();
+        return new Linkifier(input).process();
     }
 
     /**
