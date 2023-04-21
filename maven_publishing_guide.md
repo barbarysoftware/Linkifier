@@ -14,7 +14,7 @@ If the version ends with -SNAPSHOT, the artifact will be deployed to the snapsho
 
 Once a non-artifact is on Sonatype, do the following:
 
-1. Login to the Sonatype Repository Manager with your Sonatype credentials
+1. Login to the Sonatype Repository Manager with your Sonatype credentials https://s01.oss.sonatype.org/
 2. Move to the “Staging Repositories” section on the left. 
 3. Choose the staging repository to promote. 
 4. “Close” the staging repository. 
