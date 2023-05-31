@@ -220,4 +220,46 @@ public class LinkifierTest {
                 new Linkifier().linkify("Hello world at http://www.test1.example.com?test=123$&amp;h*e)ll(o=!test test"));
     }
 
+    @Test
+    public void testWithTrailingPeriod() {
+        assertEquals(
+                "<a href='http://example.com' target='_blank'>example.com</a>.",
+                new Linkifier().linkify("example.com."));
+    }
+
+    @Test
+    public void testWithTrailingPeriodAndWord() {
+        assertEquals(
+                "<a href='http://example.com' target='_blank'>example.com</a>.test",
+                new Linkifier().linkify("example.com.test"));
+    }
+
+    @Test
+    public void testWithTrailingPeriodAndWords() {
+        assertEquals(
+                "Testing 123 <a href='http://example.com' target='_blank'>example.com</a>.test example 1 2 3",
+                new Linkifier().linkify("Testing 123 example.com.test example 1 2 3"));
+    }
+
+    @Test
+    public void testWithExclamationMark() {
+        assertEquals(
+                "<a href='http://example.com' target='_blank'>example.com</a>!",
+                new Linkifier().linkify("example.com!"));
+    }
+
+    @Test
+    public void testWithExclamationMarkAndWord() {
+        assertEquals(
+                "<a href='http://example.com' target='_blank'>example.com</a>!test",
+                new Linkifier().linkify("example.com!test"));
+    }
+
+    @Test
+    public void testWithExclamationMarkAndWords() {
+        assertEquals(
+                "Testing 123 <a href='http://example.com' target='_blank'>example.com</a>!test example 1 2 3",
+                new Linkifier().linkify("Testing 123 example.com!test example 1 2 3"));
+    }
+
 }

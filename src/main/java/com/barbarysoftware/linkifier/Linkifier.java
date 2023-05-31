@@ -40,7 +40,8 @@ public class Linkifier {
     //
     // There's things that will incorrectly match, and things that will incorrectly not match. We'll fix these
     // as we become aware of them
-    private final static Pattern REGEX_URL_PATTERN = Pattern.compile("(https?://)?([a-z0-9-@]+\\.)+(" + getTLDs() + ")([-a-zA-Z0-9@:%._+~#?&/=;()!$*])*", Pattern.CASE_INSENSITIVE);
+    private final static Pattern REGEX_URL_PATTERN =
+            Pattern.compile("(https?://)?([a-z0-9-@]+\\.)+(" + getTLDs() + ")+(/([-a-zA-Z0-9@:%._+~#?&/=;()!$*])*)?+(\\?([-a-zA-Z0-9@:%._+~#?&/=;()!$*])*)?", Pattern.CASE_INSENSITIVE);
 
     private final boolean useHttps;
     private final boolean openLinksInNewWindow;
