@@ -68,14 +68,14 @@ public class LinkifierTest {
     public void testWithHttps() {
         assertEquals(
                 "<a href='https://example.com' target='_blank'>example.com</a>",
-                new Linkifier(true, false).linkify("example.com"));
+                new Linkifier(true, true).linkify("example.com"));
     }
 
     @Test
     public void testWithLinksInSameWindow() {
         assertEquals(
                 "<a href='https://example.com'>example.com</a>",
-                new Linkifier(true, true).linkify("example.com"));
+                new Linkifier(true, false).linkify("example.com"));
     }
 
     @Test

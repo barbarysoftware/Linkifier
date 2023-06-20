@@ -47,7 +47,7 @@ public class Linkifier {
     private final boolean openLinksInNewWindow;
 
     public Linkifier() {
-        this(false, false);
+        this(false, true);
     }
 
     public Linkifier(boolean useHttps, boolean openLinksInNewWindow) {
@@ -78,9 +78,9 @@ public class Linkifier {
 
     private String toLinkTag(Link link) {
         if (openLinksInNewWindow) {
-            return "<a href='" + link.href() + "'>" + link.value() + "</a>";
-        } else {
             return "<a href='" + link.href() + "' target='_blank'>" + link.value() + "</a>";
+        } else {
+            return "<a href='" + link.href() + "'>" + link.value() + "</a>";
         }
     }
 
