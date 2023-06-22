@@ -12,11 +12,11 @@ import java.util.stream.Stream;
  * Converts text so that any website links in the text is wrapped in an HTML A tag.
  * <ul>
  * <li> Only works on URLs. Email addresses, etc are not converted
- * <li> Links open in new tab
- * <li> If a scheme has to be added, http is used. eg: example.com links to http://example.com
+ * <li> By default, links open in new tab.
+ * <li> By default, if a scheme has to be added, http is used. eg: example.com links to http://example.com
  * </ul>
- * This is not intended to be a full, generic solution. It exists only for improving suggestion descriptions and
- * comments in Feature Upvote
+ *
+ * This class is thread-safe. Instances are immutable, and can be safely reused and shared by multiple threads.
  */
 public class Linkifier {
 
@@ -46,10 +46,18 @@ public class Linkifier {
     private final boolean useHttps;
     private final boolean openLinksInNewWindow;
 
+    /**
+     * Creates an instance that uses http on links that are a missing the scheme, and opens links
+     * in new window.
+     */
     public Linkifier() {
         this(false, true);
     }
 
+    /**
+     * @param useHttps if a scheme needs to be added to a link, use https instead of http
+     * @param openLinksInNewWindow if true, a target='_blank' attribute is added to the link
+     */
     public Linkifier(boolean useHttps, boolean openLinksInNewWindow) {
         this.useHttps = useHttps;
         this.openLinksInNewWindow = openLinksInNewWindow;
