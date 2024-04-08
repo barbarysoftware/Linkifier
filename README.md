@@ -15,7 +15,7 @@ Linkifier is maintained by the dev team at [Feature Upvote](https://featureupvot
 
 ## Example
 
-```
+```java
     public static void main(String[] args) {
         String input = "Many websites use example.com in their docs";
         var linkified = new Linkifier().linkify(input);
